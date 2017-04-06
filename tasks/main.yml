@@ -28,3 +28,11 @@
     group="{{ mirror_unix_user }}"
     state="directory"
     mode=2751
+
+- name: Make Sure Cron Dir Exists
+  file:
+    path="{{ mirror_cron_dir }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_user }}"
+    state="directory"
+    mode=0700
