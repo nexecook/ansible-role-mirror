@@ -2,8 +2,10 @@
 
 ## Mirror
 mirror_endpoint: "imirror.nexcess.net"
-mirror_doc_root: "/home/mirror/docroot"
 mirror_unix_user: "mirror"
 mirror_unix_group: "mirror"
 mirror_unix_home: "/home/mirror"
 mirror_unix_shell: "/bin/bash"
+
+mirror_doc_root: "{{ mirror_unix_home }}/docroot"
+mirror_cron_dir: "{{ mirror_unix_home }}/crontabs"
