@@ -26,4 +26,5 @@
     path="{{ mirror_doc_root }}"
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_user }}"
+    state="directory"
     mode=2751
