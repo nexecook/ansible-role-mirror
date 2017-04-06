@@ -21,9 +21,9 @@
     group="{{ mirror_unix_user }}"
     mode=2751
 
-- name: Make Sure Docroot Exists
+- name: Make Sure Doc Root Exists
   file:
-    path="{{ mirror_docroot }}"
+    path="{{ mirror_doc_root }}"
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_user }}"
     mode=2751
