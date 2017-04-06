@@ -1,0 +1,30 @@
+---
+
+- name: Add Group
+  group:
+    name="{{ mirror_unix_group }}"
+    gid="{{ mirror_unix_gid }}"
+    state="present"
+
+- name: Add User
+  user:
+    name="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    home="{{ mirror_unix_home }}"
+    move_home="yes"
+    shell="{{ mirror_unix_shell }}"
+    state="present"
+
+- name: Ensure Proper Owner of Home Directory
+  file:
+    path="{{ mirror_unix_home }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_user }}"
+    mode=2751
+
+- name: Make Sure Docroot Exists
+  file:
+    path="{{ mirror_docroot }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_user }}"
+    mode=2751
