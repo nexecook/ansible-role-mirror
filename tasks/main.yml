@@ -3,7 +3,6 @@
 - name: Add Group
   group:
     name="{{ mirror_unix_group }}"
-    gid="{{ mirror_unix_gid }}"
     state="present"
 
 - name: Add User
