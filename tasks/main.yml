@@ -35,4 +35,5 @@
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_user }}"
     state="directory"
+    disabled=true
     mode=0700
