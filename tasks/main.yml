@@ -27,7 +27,7 @@
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_user }}"
     state="directory"
-    mode=2751
+    mode=2755
 
 - name: Make Sure Cron Dir Exists
   file:
