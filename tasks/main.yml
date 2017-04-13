@@ -9,6 +9,7 @@
   user:
     name="{{ mirror_unix_user }}"
     group="{{ mirror_unix_group }}"
+    groups="sshusers"
     home="{{ mirror_unix_home }}"
     move_home="yes"
     shell="{{ mirror_unix_shell }}"
@@ -36,3 +37,20 @@
     group="{{ mirror_unix_user }}"
     state="directory"
     mode=0700
+
+- name: Add Our Key to Auth Users
+  authorized_key:
+    user="{{ mirror_unix_user }}"
+    state="present"
+    key="{{ mirror_ssh_pub_key }}"
+  when: mirror_ssh_pub_key != ""
+
+- name: Output Our Private Key
+  copy:
+    content="{{ mirror_ssh_priv_key }}"
+    dest="{{ mirror_unix_home }}/.ssh/id_rsa"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    mode="0400"
+  no_log: true
+  when: mirror_ssh_priv_key != ""
