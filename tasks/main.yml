@@ -62,3 +62,11 @@
     mode="0600"
   no_log: true
   when: mirror_ssh_priv_key != ""
+
+- name: Install Mirror Contact
+  template:
+    src="MIRROR_CONTACT.TXT.j2"
+    dest="{{ mirror_doc_root }}/MIRROR_CONTACT.TXT"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    mode="0644"

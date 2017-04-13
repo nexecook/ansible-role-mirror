@@ -12,3 +12,5 @@ mirror_cron_dir: "{{ mirror_unix_home }}/crontabs"
 
 mirror_ssh_pub_key: ""
 mirror_ssh_priv_key: ""
+
+mirror_contact_email: "mirroradmin >AT< nexcess >DOT< net"
