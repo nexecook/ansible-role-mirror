@@ -38,6 +38,14 @@
     state="directory"
     mode=0700
 
+- name: Setup Directory Size CRON
+  cron:
+    name="DIRECTORY_SIZES.TXT"
+    minute="0"
+    hour="4"
+    job="date >{{ mirror_doc_root }}/DIRECTORY_SIZES.TXT ; du -hsc {{ mirror_doc_root }}/*/ >>{{ mirror_doc_root }}/DIRECTORY_SIZES.TXT"
+    state="present"
+
 - name: Add Our Key to Auth Users
   authorized_key:
     user="{{ mirror_unix_user }}"
