@@ -71,3 +71,17 @@
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_group }}"
     mode="0644"
+
+- name: Install The Mirror Manager Reporting Binary
+  copy:
+    src="report_mirror"
+    dest="{{ mirror_unix_home }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    mode="0700"
+
+- name: Install CRON Env Vars
+  cron:
+    env="yes"
+    name="MAILTO"
+    value="{{ mirror_contact_email }}"
