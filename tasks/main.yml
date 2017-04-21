@@ -79,3 +79,9 @@
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_group }}"
     mode="0700"
+
+- name: Install CRON Env Vars
+  cron:
+    env="yes"
+    name="MAILTO"
+    value="{{ mirror_contact_email }}"
