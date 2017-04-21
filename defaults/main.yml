@@ -1,7 +1,7 @@
 ---
 
 ## Mirror
-mirror_endpoint: "imirror.nexcess.net"
+mirror_endpoint: "mirror.us-midwest-1.nexcess.net"
 mirror_unix_user: "mirror"
 mirror_unix_group: "mirror"
 mirror_unix_home: "/home/mirror"
