@@ -82,6 +82,7 @@
 
 - name: Install CRON Env Vars
   cron:
+    user="{{ mirror_unix_user }}"
     env="yes"
     name="MAILTO"
     value="{{ mirror_contact_email }}"
