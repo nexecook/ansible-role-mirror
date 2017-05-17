@@ -9,6 +9,7 @@ mirror_unix_shell: "/bin/bash"
 
 mirror_doc_root: "{{ mirror_unix_home }}/docroot"
 mirror_cron_dir: "{{ mirror_unix_home }}/crontabs"
+mirror_timestamp_dir: "{{ mirror_unix_home }}/timestamp"
 
 mirror_ssh_pub_key: ""
 mirror_ssh_priv_key: ""
