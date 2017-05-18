@@ -44,7 +44,7 @@
     owner="{{ mirror_unix_user }}"
     group="{{ mirror_unix_user }}"
     state="directory"
-    mode=0700
+    mode=0755
 
 - name: Setup Directory Size CRON
   cron:
