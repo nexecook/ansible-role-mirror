@@ -5,6 +5,11 @@
     name="{{ mirror_unix_group }}"
     state="present"
 
+- name: Add sshusers Group If Needed
+  group:
+    name="sshusers"
+    state="present"
+
 - name: Add User
   user:
     name="{{ mirror_unix_user }}"
