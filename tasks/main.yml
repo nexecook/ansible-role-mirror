@@ -24,14 +24,14 @@
   file:
     path="{{ mirror_unix_home }}"
     owner="{{ mirror_unix_user }}"
-    group="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
     mode=2751
 
 - name: Make Sure Doc Root Exists
   file:
     path="{{ mirror_doc_root }}"
     owner="{{ mirror_unix_user }}"
-    group="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
     state="directory"
     mode=2755
 
@@ -39,7 +39,15 @@
   file:
     path="{{ mirror_cron_dir }}"
     owner="{{ mirror_unix_user }}"
-    group="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    state="directory"
+    mode=0700
+
+- name: Make Sure Log Dir Exists
+  file:
+    path="{{ mirror_log_dir }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
     state="directory"
     mode=0700
 
@@ -47,7 +55,7 @@
   file:
     path="{{ mirror_timestamp_dir }}"
     owner="{{ mirror_unix_user }}"
-    group="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
     state="directory"
     mode=0755
 
