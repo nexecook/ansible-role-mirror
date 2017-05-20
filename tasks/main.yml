@@ -107,3 +107,20 @@
     env="yes"
     name="MAILTO"
     value="{{ mirror_contact_email }}"
+
+- name: Install Mirror DataDog Check
+  template:
+    src="datadog/mirror.py.j2"
+    dest="/etc/dd-agent/checks.d/mirror.py"
+    owner="{{ datadog_user }}"
+    group="{{ datadog_group }}"
+    mode=0644
+
+- name: Install Mirror DataDog Config
+  template:
+    src="datadog/mirror.yaml.j2"
+    dest="/etc/dd-agent/conf.d/mirror.yaml"
+    owner="{{ datadog_user }}"
+    group="{{ datadog_group }}"
+    mode=0644
+  notify: restart datadog-agent
