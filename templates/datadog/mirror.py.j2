@@ -1,0 +1,9 @@
+import os
+import time
+
+from checks import AgentCheck
+class MirrorCheck(AgentCheck):
+    def check(self, instance):
+        for filename in os.listdir("{{ mirror_timestamp_dir }}"):
+            with open("{{ mirror_timestamp_dir }}/" + filename) as file:
+                self.gauge('mirror.hours_since_rsync', round((int(time.time()) - int(file.read())) / 3600.0, 2), tags=["mirror-target:%s" % filename])
