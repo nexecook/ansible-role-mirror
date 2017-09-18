@@ -51,6 +51,30 @@
     state="directory"
     mode=0700
 
+- name: Make Sure Tmp Dir Exists
+  file:
+    path="{{ mirror_tmp_dir }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    state="directory"
+    mode=0700
+
+- name: Make Sure Bin Dir Exists
+  file:
+    path="{{ mirror_bin_dir }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    state="directory"
+    mode=0700
+
+- name: Make Sure Etc Dir Exists
+  file:
+    path="{{ mirror_etc_dir }}"
+    owner="{{ mirror_unix_user }}"
+    group="{{ mirror_unix_group }}"
+    state="directory"
+    mode=0700
+
 - name: Make Sure Timestamp Dir Exists
   file:
     path="{{ mirror_timestamp_dir }}"
